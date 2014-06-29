@@ -15,6 +15,6 @@ angular.module('rapBattlesApp', [
       .otherwise({
         redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
   });

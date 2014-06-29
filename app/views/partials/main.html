@@ -1,21 +1,11 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<div class="col-xs-10">
+  <h2>Read this: <span style="font-size: .75em">{{textPrompt}}</span></h2>
+  <textarea readonly rows="5" cols="50">{{transcript}}</textarea>
 </div>
-
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
-  </div>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+<div class="col-xs-2">
+  <h3>Score: {{score}}</h3>
+  <h3>Time: {{time}}</h3>
+  <h3>Accuracy: {{accuracy}}</h3>
 </div>
