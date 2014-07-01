@@ -4,7 +4,8 @@ angular.module('rapBattlesApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'timer'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider

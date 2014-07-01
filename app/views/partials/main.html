@@ -3,9 +3,10 @@
 <div class="col-xs-10">
   <h2>Read this: <span style="font-size: .75em">{{textPrompt}}</span></h2>
   <textarea readonly rows="5" cols="50">{{transcript}}</textarea>
+  <button ng-click="listen()" ng-disabled="listening">Start/Stop</button>
 </div>
 <div class="col-xs-2">
   <h3>Score: {{score}}</h3>
-  <h3>Time: {{time}}</h3>
+  <h3>Time:<timer autostart="false">{{seconds}}</timer></h3>
   <h3>Accuracy: {{accuracy}}</h3>
 </div>

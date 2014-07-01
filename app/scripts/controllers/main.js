@@ -3,18 +3,25 @@
 angular.module('rapBattlesApp')
   .controller('MainCtrl', function($scope, textPrompts) {
     $scope.textPrompt = textPrompts[Math.floor(Math.random() * textPrompts.length)];
-
     $scope.transcript = 'Allow microphone permissions and get rapping!';
 
     var recognizer = new webkitSpeechRecognition();
-    recognizer.continuous = true;
+    recognizer.continuous = false;
     recognizer.onresult = function(e) {
       console.log(e.results['0']['0']['transcript']);
       $scope.transcript = e.results['0']['0']['transcript'];
       $scope.accuracy = getAccuracy().toFixed(2) + '%';
+      $scope.listening = false;
+      recognizer.stop();
+      $scope.$broadcast('timer-stop');
       $scope.$apply();
     };
-    recognizer.start();
+
+    $scope.listen = function(){
+    	$scope.listening = true;
+    	recognizer.start();
+    	$scope.$broadcast('timer-start');
+    };
 
     var getAccuracy = function() {
       var a = $scope.transcript.toLowerCase();
