@@ -25,10 +25,14 @@ angular.module('rapBattlesApp')
 
     var getAccuracy = function() {
       var a = $scope.transcript.toLowerCase();
-      var b = $scope.textPrompt.toLowerCase().replace(/[\.,-\/!?;:]/g, "");
+      var b = $scope.textPrompt.toLowerCase().replace(/[\.,-\/!?;:]/g, '');
 
-      if (a.length === 0) return b.length;
-      if (b.length === 0) return a.length;
+      if (a.length === 0) {
+      	return b.length;
+      }
+      if (b.length === 0) {
+      	return a.length;
+      }
 
       var matrix = [];
 
