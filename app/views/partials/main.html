@@ -1,12 +1,26 @@
-<div ng-include="'partials/navbar'"></div>
-
-<div class="col-xs-10">
-  <h2>Read this: <span style="font-size: .75em">{{textPrompt}}</span></h2>
-  <textarea readonly rows="5" cols="50">{{transcript}}</textarea>
-  <button ng-click="listen()" ng-disabled="listening">Start/Stop</button>
+<div class="col-xs-12 logo">
+    <h1>
+        PUBLIC DOMAIN RAP BATTLES
+    </h1>
 </div>
-<div class="col-xs-2">
-  <h3>Score: {{score}}</h3>
-  <h3>Time:<timer autostart="false" ng-show="listening"></timer></h3>
-  <h3>Accuracy: {{accuracy}}</h3>
+
+<div class="row">
+    <div class="col-xs-9 battleground">
+        <div class="row">
+            <div class="col-xs-6">
+                {{textPrompt}}
+            </div>
+            <div class="col-xs-6">
+                <textarea readonly id="user-rap"rows="5" cols="50">{{transcript}}</textarea>
+                <button ng-click="listen()" ng-disabled="listening">Start/Stop</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <h3>Score: {{score}}</h3>
+        <h3>Time:
+            <timer autostart="false" ng-show="listening"></timer>
+        </h3>
+        <h3>Accuracy: {{accuracy}}</h3>
+    </div>
 </div>

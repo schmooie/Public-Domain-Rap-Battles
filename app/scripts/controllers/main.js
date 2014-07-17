@@ -1,8 +1,13 @@
 'use strict';
 
 angular.module('rapBattlesApp')
-  .controller('MainCtrl', function($scope, textPrompts) {
-    $scope.textPrompt = textPrompts[Math.floor(Math.random() * textPrompts.length)];
+  .controller('MainCtrl', function($scope, $http, textPrompts) {
+    // $scope.textPrompt = textPrompts[Math.floor(Math.random() * textPrompts.length)];
+    $http.get('/api/v1/random')
+    	.success(function(prompt){
+    		$scope.textPrompt = prompt.passage;
+    	});
+
     $scope.transcript = 'Allow microphone permissions and get rapping!';
 
     var recognizer = new webkitSpeechRecognition();
